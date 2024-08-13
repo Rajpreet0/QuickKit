@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Oswald } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: "400"
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={oswald.className}>
+        <nav className="w-full bg-[#4E76ED]  flex justify-center items-center h-16">
+          <a className="text-white text-xl">QuickKit</a>
+        </nav>
+        {children}
+      </body>
     </html>
   );
 }
