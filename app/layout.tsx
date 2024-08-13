@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Oswald } from "next/font/google";
+import { Oswald, Pacifico } from "next/font/google";
 import "./globals.css";
 
 const oswald = Oswald({
+  subsets: ["latin"],
+  weight: "400"
+});
+
+const pacifico = Pacifico({
   subsets: ["latin"],
   weight: "400"
 });
@@ -19,11 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={oswald.className}>
-        <nav className="w-full bg-[#4E76ED]  flex justify-center items-center h-16">
-          <a className="text-white text-xl">QuickKit</a>
-        </nav>
-        {children}
+      <body className={`bg-[#F8F8FF] ${oswald.className}`}>
+        <div className="p-4">
+          <nav className="w-full rounded-xl drop-shadow-xl bg-[#4E76ED] flex justify-center items-center h-16">
+            <a className={`text-white text-xl  ${pacifico.className}`}>QuickKit</a>
+          </nav>
+          {children}
+        </div>
       </body>
     </html>
   );
